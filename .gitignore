@@ -1,0 +1,5 @@
+node_modules/
+.env
+logs/
+*.log
+# data/jobs.json is intentionally tracked — GitHub Actions needs it to persist deduplication state

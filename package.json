@@ -1,0 +1,23 @@
+{
+  "name": "nhs-job-notifier",
+  "version": "1.0.0",
+  "description": "Monitors NHS Jobs and sends WhatsApp alerts for new postings",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "scrape": "node src/scraper.js",
+    "notify": "node src/whatsapp.js",
+    "test": "node src/test.js",
+    "webhook": "node src/webhook-server.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cheerio": "^1.2.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}
