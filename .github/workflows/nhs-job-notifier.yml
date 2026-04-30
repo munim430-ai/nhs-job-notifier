@@ -21,14 +21,12 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: nhs-job-notifier/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        working-directory: nhs-job-notifier
         run: npm ci
 
       - name: Run NHS Job Notifier
-        working-directory: nhs-job-notifier
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -39,8 +37,6 @@ jobs:
         run: node src/index.js
 
       - name: Save deduplication database
-        # Commits the updated jobs.json so the next run knows which jobs were already sent
-        working-directory: nhs-job-notifier
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
